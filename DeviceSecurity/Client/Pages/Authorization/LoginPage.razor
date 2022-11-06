@@ -1,0 +1,42 @@
+﻿@page "/";
+@page "/login";
+
+<PageTitle>Авторизация</PageTitle>
+<div style="width:50%; min-width: 250px; max-width: 350px; margin: 0 auto;">
+    <h4 style="margin: 20px 0px; text-align: center;">
+        Панель администрирования устройств
+    </h4>
+    <div>
+        <MudTextField Label="Логин" @bind-Value="@Login" Variant="Variant.Outlined" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Login" />
+    </div>
+    <div>
+        <MudTextField Label="Пароль" Clearable="true" @bind-Value="@Password" InputType="InputType.Password" Variant="Variant.Outlined" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Password" />
+    </div>
+    <div>
+        <MudButton  style="margin: 10px 0px; height: 45px;" DisableElevation="true" Variant="Variant.Filled" FullWidth="true" Color="Color.Primary">Войти</MudButton>
+    </div>
+</div>
+
+@code {
+    private string? _login;
+    private string? _password;
+
+    public string? Login
+    {
+        get => _login;
+        set
+        {
+            _login = value;
+            this.StateHasChanged();
+        }
+    }
+    public string? Password
+    { 
+        get => _password;
+        set
+        {
+            _password = value;
+            this.StateHasChanged();
+        }
+    }
+}
